@@ -6,7 +6,13 @@ from complytic_receipts.signer import LocalSigner, KMSSigner
 
 def build():
     if len(sys.argv) > 1 and sys.argv[1].startswith("arn:"):
-        return KMSSigner(sys.argv[1])
+        arn = sys.argv[1]
+        if any(p in arn for p in ("REGION", "ACCOUNT", "KEY-ID")):
+            raise SystemExit("That is the placeholder ARN. Substitute your real KMS key ARN.")
+        parts = arn.split(":")
+        if len(parts) < 6 or not parts[3]:
+            raise SystemExit("Malformed ARN. Expected arn:aws:kms:REGION:ACCOUNT:key/UUID")
+        return KMSSigner(arn, region=parts[3])
     return LocalSigner(key_path="signer_key.pem", key_id="isolated-dev-1")
 
 
