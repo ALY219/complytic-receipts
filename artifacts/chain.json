@@ -1,0 +1,134 @@
+[
+  {
+    "receipt": {
+      "v": 1,
+      "chain_id": "demo-chain-1",
+      "seq": 0,
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "kind": "intent",
+      "tx_id": "49bce51e-ee19-4889-bb0b-2b9246ab935b",
+      "ts": "2026-11-13T17:44:22.855564+00:00",
+      "actor": {
+        "principal": "eng-142",
+        "role": "agent_runner"
+      },
+      "payload": {
+        "sql": "CREATE TABLE ledger (id INTEGER, amount TEXT, vendor TEXT)",
+        "params_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "database": "ledger-demo",
+        "driver": "sqlite3"
+      }
+    },
+    "receipt_hash": "7962a00ddcd8e7b269913825ab4f4b7d6b388ae28a41e0b77a254387b2de27f0",
+    "sig": {
+      "alg": "ECDSA_SHA_256",
+      "key_id": "isolated-dev-1",
+      "value_b64": "MEYCIQDgehkJfi5Qp95q+3moATSi+ddysXgvCeuQ/F/hiNUUoQIhANNMBN+vV7UhfKRShZwe9CqXYyZmDVtKw1jC2cDLNiVH",
+      "canonicalization": "JSON: sort_keys=True, separators=(',',':'), ensure_ascii=False, UTF-8, floats rejected"
+    }
+  },
+  {
+    "receipt": {
+      "v": 1,
+      "chain_id": "demo-chain-1",
+      "seq": 1,
+      "prev_hash": "7962a00ddcd8e7b269913825ab4f4b7d6b388ae28a41e0b77a254387b2de27f0",
+      "kind": "intent",
+      "tx_id": "49bce51e-ee19-4889-bb0b-2b9246ab935b",
+      "ts": "2026-11-13T17:44:23.068058+00:00",
+      "actor": {
+        "principal": "eng-142",
+        "role": "agent_runner"
+      },
+      "payload": {
+        "sql": "INSERT INTO ledger VALUES (?, ?, ?)",
+        "params_sha256": "c67ed0602a10a55860056ff79a3f228f19d644c1bae14da9527f02b8974cb65a",
+        "database": "ledger-demo",
+        "driver": "sqlite3"
+      }
+    },
+    "receipt_hash": "dffffb5998191a7789b4c24220665dbebe33b8647f17d5ec479ebc4e3e0a8838",
+    "sig": {
+      "alg": "ECDSA_SHA_256",
+      "key_id": "isolated-dev-1",
+      "value_b64": "MEUCIGNOncO3kpHxFdqxWJgUCj9rFKQcOzH/E0H+m5/I068xAiEA0XG884bFLqS5ou2ibFklukLMcRNWJYOl90NXrYsuu4k=",
+      "canonicalization": "JSON: sort_keys=True, separators=(',',':'), ensure_ascii=False, UTF-8, floats rejected"
+    }
+  },
+  {
+    "receipt": {
+      "v": 1,
+      "chain_id": "demo-chain-1",
+      "seq": 2,
+      "prev_hash": "dffffb5998191a7789b4c24220665dbebe33b8647f17d5ec479ebc4e3e0a8838",
+      "kind": "intent",
+      "tx_id": "49bce51e-ee19-4889-bb0b-2b9246ab935b",
+      "ts": "2026-11-13T17:44:23.086740+00:00",
+      "actor": {
+        "principal": "eng-142",
+        "role": "agent_runner"
+      },
+      "payload": {
+        "sql": "UPDATE ledger SET amount = ? WHERE id = ?",
+        "params_sha256": "cf1a0431aa967bf1591c287d2497f9694ad1b8078cfc002abe084fecb0cdb742",
+        "database": "ledger-demo",
+        "driver": "sqlite3"
+      }
+    },
+    "receipt_hash": "e0a5fce6dbd031eb5bb546ae469d045aba205fdd1ab262d5dc73dce28380aef5",
+    "sig": {
+      "alg": "ECDSA_SHA_256",
+      "key_id": "isolated-dev-1",
+      "value_b64": "MEYCIQCwOm1BK8q+/OwRYGJsehq7vtHL09nbnXZZFxHYWBT7bwIhALkQSxikR/MIspnRi42XpqMQJUrd5gsv1JhQdNxeqR8j",
+      "canonicalization": "JSON: sort_keys=True, separators=(',',':'), ensure_ascii=False, UTF-8, floats rejected"
+    }
+  },
+  {
+    "receipt": {
+      "v": 1,
+      "chain_id": "demo-chain-1",
+      "seq": 3,
+      "prev_hash": "e0a5fce6dbd031eb5bb546ae469d045aba205fdd1ab262d5dc73dce28380aef5",
+      "kind": "outcome",
+      "tx_id": "49bce51e-ee19-4889-bb0b-2b9246ab935b",
+      "ts": "2026-11-13T17:44:23.102135+00:00",
+      "actor": {
+        "principal": "eng-142",
+        "role": "agent_runner"
+      },
+      "payload": {
+        "status": "committed",
+        "error": null,
+        "intents": [
+          {
+            "intent_hash": "7962a00ddcd8e7b269913825ab4f4b7d6b388ae28a41e0b77a254387b2de27f0",
+            "sql": "CREATE TABLE ledger (id INTEGER, amount TEXT, vendor TEXT)",
+            "rowcount": -1,
+            "error": null
+          },
+          {
+            "intent_hash": "dffffb5998191a7789b4c24220665dbebe33b8647f17d5ec479ebc4e3e0a8838",
+            "sql": "INSERT INTO ledger VALUES (?, ?, ?)",
+            "rowcount": 1,
+            "error": null
+          },
+          {
+            "intent_hash": "e0a5fce6dbd031eb5bb546ae469d045aba205fdd1ab262d5dc73dce28380aef5",
+            "sql": "UPDATE ledger SET amount = ? WHERE id = ?",
+            "rowcount": 1,
+            "error": null
+          }
+        ],
+        "intent_set_sha256": "b3c98e8311054a11eb195218fa7275d96814cd4831a657441bd5072963ef0cff",
+        "statement_count": 3
+      }
+    },
+    "receipt_hash": "c9a4c27ea0c64e1a4f6d021bd551fcab0ae12c5ae5e76a53bf9a0821de64c4a6",
+    "sig": {
+      "alg": "ECDSA_SHA_256",
+      "key_id": "isolated-dev-1",
+      "value_b64": "MEQCIBx5ER89QSbYzy7Om+UlW3R1QUy/llLJTX+EAcvhryvUAiAG7Y3EJZpFDuV3bYNyrpJD3+xqrocN/pX1RwuozztsUQ==",
+      "canonicalization": "JSON: sort_keys=True, separators=(',',':'), ensure_ascii=False, UTF-8, floats rejected"
+    }
+  }
+]
