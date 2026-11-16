@@ -44,6 +44,10 @@ manipulation by the host is in scope for an attacker with host control.
 
 Only the third mode provides a meaningful answer to "the agent could forge receipts."
 
+### 7. Logical ambient authority (Notarized hallucinations)
+Even if database credentials are stripped and signing is out-of-band, a wrapper that blindly proxies and signs whatever the agent hands it still grants the agent logical ambient authority. You are simply cryptographically notarizing its hallucinations. 
+**Closing this requires a Deterministic Evaluation Gate.** The gate must live in the signer trust domain (so a compromised wrapper cannot self-approve) and evaluate the proposed payload against a hard-coded policy schema *before* the T=0 Intent Receipt is signed. Fail-closed denials must also be signed and chained. **Not built yet.** 
+
 ## Known limitations
 - `executemany`, stored procedures, and ORM bulk paths are not wrapped.
 - Sealing before execute adds one signing round trip per statement.

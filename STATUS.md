@@ -22,6 +22,8 @@ Last updated: 2026-11-13
 - Trusted timestamping
 - Any client deployment
 - Any independent review
+- Deterministic Evaluation Gate (policy enforcement at T=0 before signing)
+- Fail-closed chaining of denied intents 
 
 ## Claims we do not make
 immutable · certified · compliant · attested · court-ready · FRE 902 compliant ·
